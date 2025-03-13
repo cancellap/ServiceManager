@@ -1,7 +1,11 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\EduardoCilentoSantin\\ServiceManager\\ServiceManager\\",
-  "Documents": [],
+  "WorkspaceRootPath": "C:\\Users\\PedroCancellaOliveir\\Documents\\ServiceManager\\ServiceManager\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{3CDC3B4B-9CF5-4D0B-89A1-F38FCC3B36BD}|..\\SM.Domaiin\\SM.Domaiin.csproj|c:\\users\\pedrocancellaoliveir\\documents\\servicemanager\\sm.domaiin\\entities\\base\\baseentities.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -9,11 +13,24 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": -1,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "BaseEntities.cs",
+              "DocumentMoniker": "C:\\Users\\PedroCancellaOliveir\\Documents\\ServiceManager\\SM.Domaiin\\Entities\\Base\\BaseEntities.cs",
+              "RelativeDocumentMoniker": "..\\SM.Domaiin\\Entities\\Base\\BaseEntities.cs",
+              "ToolTip": "C:\\Users\\PedroCancellaOliveir\\Documents\\ServiceManager\\SM.Domaiin\\Entities\\Base\\BaseEntities.cs",
+              "RelativeToolTip": "..\\SM.Domaiin\\Entities\\Base\\BaseEntities.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-13T17:19:06.836Z",
+              "EditorCaption": ""
             }
           ]
         }
