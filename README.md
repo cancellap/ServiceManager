@@ -3,6 +3,7 @@
 ## 📁 Estrutura da Solução (Solution)
 
 A solução será organizada em **múltiplos projetos** dentro de uma Solution (`ServiceManager.sln`), seguindo a arquitetura **DDD** e **Hexagonal**.
+```bash
 📂 ServiceManager.sln
 │
 ├── 📂 ServiceManager.API            → Camada de Apresentação (Controllers)
@@ -44,6 +45,8 @@ A solução será organizada em **múltiplos projetos** dentro de uma Solution (
     ├── Utils/                         → Classes utilitárias (ex: formatação de datas)
     ├── Constants/                     → Constantes globais
     ├── Exceptions/                     → Exceções customizadas
+```
+
 ## 📌 Referências entre os Projetos
 
 Para manter a separação de responsabilidades e permitir a comunicação correta entre os projetos:
