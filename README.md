@@ -1,10 +1,8 @@
-# ServiceManager
+# 📌 ServiceManager
 
-📁 Estrutura da Solução (Solution)
-A solução será organizada em múltiplos projetos dentro de uma Solution (ServiceManager.sln), seguindo a arquitetura DDD e Hexagonal.
+## 📁 Estrutura da Solução (Solution)
 
-mathematica
-Copy
+A solução será organizada em **múltiplos projetos** dentro de uma Solution (`ServiceManager.sln`), seguindo a arquitetura **DDD** e **Hexagonal**.
 📂 ServiceManager.sln
 │
 ├── 📂 ServiceManager.API            → Camada de Apresentação (Controllers)
@@ -46,29 +44,32 @@ Copy
     ├── Utils/                         → Classes utilitárias (ex: formatação de datas)
     ├── Constants/                     → Constantes globais
     ├── Exceptions/                     → Exceções customizadas
-📌 Referências entre os Projetos
+## 📌 Referências entre os Projetos
+
 Para manter a separação de responsabilidades e permitir a comunicação correta entre os projetos:
 
-✅ API (ServiceManager.API)
+✅ **API (`ServiceManager.API`)**  
+- Depende de **Application** (para chamar os casos de uso)  
+- Depende de **Domain** (para utilizar entidades)  
 
-Depende de Application (para chamar os casos de uso)
-Depende de Domain (para utilizar entidades)
-✅ Application (ServiceManager.Application)
+✅ **Application (`ServiceManager.Application`)**  
+- Depende de **Domain** (para usar entidades e interfaces)  
+- Depende de **Infrastructure** (para acessar repositórios)  
 
-Depende de Domain (para usar entidades e interfaces)
-Depende de Infrastructure (para acessar repositórios)
-✅ Infrastructure (ServiceManager.Infrastructure)
+✅ **Infrastructure (`ServiceManager.Infrastructure`)**  
+- Depende de **Domain** (implementa repositórios baseados nas interfaces do domínio)  
 
-Depende de Domain (implementa repositórios baseados nas interfaces do domínio)
-✅ Workers (ServiceManager.Workers)
+✅ **Workers (`ServiceManager.Workers`)**  
+- Depende de **Infrastructure** (para acessar RabbitMQ e banco de dados)  
+- Depende de **Application** (para chamar regras de negócio)  
 
-Depende de Infrastructure (para acessar RabbitMQ e banco de dados)
-Depende de Application (para chamar regras de negócio)
-🚀 Como Rodar no Docker?
-Vamos criar um docker-compose.yml para subir todos os serviços:
+---
 
-yaml
-Copy
+## 🚀 Como Rodar no Docker?
+
+Para executar o projeto no Docker, crie um arquivo `docker-compose.yml` e adicione:
+
+```yaml
 version: '3.8'
 services:
   api:
@@ -98,18 +99,10 @@ services:
     ports:
       - "5672:5672"
       - "15672:15672"
-📌 Fluxo de Dados
-O cliente chama um endpoint na API (ServiceManager.API)
-A API chama um caso de uso na camada Application
-O Application usa um repositório da Infrastructure para salvar os dados no banco
-A API publica um evento no RabbitMQ para notificar que a OS foi criada
-O Worker (ServiceManager.Workers) escuta essa mensagem e envia um e-mail para o cliente
-🔥 Benefícios dessa Arquitetura
+
 ✅ Alta separação de responsabilidades
 ✅ Facilidade para testes unitários
 ✅ Facilidade para escalar o sistema
 ✅ Facilidade para manutenção e evolução
-
-
 
 
