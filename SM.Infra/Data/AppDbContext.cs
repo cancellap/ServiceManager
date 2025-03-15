@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SM.Domaiin.Entities;
 using System;
 using System.Collections.Generic;
@@ -15,7 +16,35 @@ namespace SM.Infra.Data
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
        => optionsBuilder.UseNpgsql("Host=localhost;Database=sm;Username=postgres;Password=1234");
-     
+
+        public class ConverteUtc : ValueConverter<DateTime, DateTime>
+        {
+            public ConverteUtc()
+                : base(v => v.ToUniversalTime(), v => DateTime.SpecifyKind(v, DateTimeKind.Utc))
+            {
+            }
+        }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Cliente>()
+                .Property(c => c.CreatedAt)
+                .HasConversion(new ConverteUtc());
+
+            modelBuilder.Entity<Cliente>()
+                .Property(c => c.UpdatedAt)
+                .HasConversion(new ConverteUtc());
+
+            modelBuilder.Entity<Endereco>()
+                .Property(e => e.CreatedAt)
+                .HasConversion(new ConverteUtc());
+
+            modelBuilder.Entity<Endereco>()
+                .Property(e => e.UpdatedAt)
+                .HasConversion(new ConverteUtc());
+
+        }
+
         public DbSet<Cliente> Clientes { get; set; }
     }
 }

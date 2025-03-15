@@ -17,22 +17,26 @@ namespace SM.Application.Service
 
         private readonly ClienteRespository _clienteRepository;
         private readonly IMapper _mapper;
-
         public ClienteService(ClienteRespository clienteRepository, IMapper mapper)
         {
             _clienteRepository = clienteRepository;
             _mapper = mapper;
         }
 
+       
         public async Task<ClienteDto> CreateClienteAsync(ClienteCreateDto clienteCreateDto)
         {
+
             var clienteExistente = await _clienteRepository.GetClienteByCnpjAsync(clienteCreateDto.Cnpj);
 
             if (clienteExistente != null)
                 throw new Exception("Cliente já cadastrado");
 
-
             var clienteEntity = _mapper.Map<Cliente>(clienteCreateDto);
+
+            var enderecoSedeEntity = _mapper.Map<EnderecoSede>(clienteCreateDto.EnderecoSede);
+            clienteEntity.enderecoSede = enderecoSedeEntity;
+
             await _clienteRepository.AddAsync(clienteEntity);
 
             var clienteDto = _mapper.Map<ClienteDto>(clienteEntity);

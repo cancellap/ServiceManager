@@ -39,53 +39,6 @@
   },
   "components": {
     "schemas": {
-      "Cliente": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "createdAt": {
-            "type": "string",
-            "format": "date-time",
-            "nullable": true
-          },
-          "updatedAt": {
-            "type": "string",
-            "format": "date-time",
-            "nullable": true
-          },
-          "deletedAt": {
-            "type": "string",
-            "format": "date-time",
-            "nullable": true
-          },
-          "isDeleted": {
-            "type": "boolean"
-          },
-          "razaoSocial": {
-            "type": "string",
-            "nullable": true
-          },
-          "nomeFantasia": {
-            "type": "string",
-            "nullable": true
-          },
-          "email": {
-            "type": "string",
-            "nullable": true
-          },
-          "cnpj": {
-            "type": "string",
-            "nullable": true
-          },
-          "enderecoSede": {
-            "$ref": "#/components/schemas/EnderecoSede"
-          }
-        },
-        "additionalProperties": false
-      },
       "ClienteCreateDto": {
         "required": [
           "cnpj",
@@ -116,7 +69,7 @@
             "type": "string"
           },
           "enderecoSede": {
-            "$ref": "#/components/schemas/EnderecoSede"
+            "$ref": "#/components/schemas/EnderecoSedeDto"
           }
         },
         "additionalProperties": false
@@ -181,42 +134,12 @@
         },
         "additionalProperties": false
       },
-      "EnderecoSede": {
+      "EnderecoSedeDto": {
+        "required": [
+          "endereco"
+        ],
         "type": "object",
         "properties": {
-          "id": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "createdAt": {
-            "type": "string",
-            "format": "date-time",
-            "nullable": true
-          },
-          "updatedAt": {
-            "type": "string",
-            "format": "date-time",
-            "nullable": true
-          },
-          "deletedAt": {
-            "type": "string",
-            "format": "date-time",
-            "nullable": true
-          },
-          "isDeleted": {
-            "type": "boolean"
-          },
-          "clienteId": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "cliente": {
-            "$ref": "#/components/schemas/Cliente"
-          },
-          "enderecoId": {
-            "type": "integer",
-            "format": "int32"
-          },
           "endereco": {
             "$ref": "#/components/schemas/Endereco"
           }

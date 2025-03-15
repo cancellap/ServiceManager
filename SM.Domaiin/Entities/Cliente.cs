@@ -18,6 +18,8 @@ namespace SM.Domaiin.Entities
         [InverseProperty("Cliente")]
         public EnderecoSede enderecoSede { get; set; }
 
+        public Cliente() { }
+
         public Cliente(Cliente c)
         {
             ValidateDomain(c);

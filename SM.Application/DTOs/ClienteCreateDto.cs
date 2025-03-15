@@ -10,23 +10,23 @@ namespace SM.Application.DTOs
 {
     public class ClienteCreateDto
     {
-        [Required(ErrorMessage = "A Razão social é obrigatório")]
+        [Required(ErrorMessage = "A Razão social é obrigatória")]
         [StringLength(100, ErrorMessage = "A Razão social não pode exceder 100 caracteres")]
         public string RazaoSocial { get; set; }
 
-        [Required(ErrorMessage = "O nome é obrigatório")]
+        [Required(ErrorMessage = "O nome fantasia é obrigatório")]
         [StringLength(100, ErrorMessage = "O nome fantasia não pode exceder 100 caracteres")]
         public string NomeFantasia { get; set; }
 
         [Required(ErrorMessage = "O E-mail é obrigatório")]
         public string Email { get; set; }
 
-        [Required(ErrorMessage = "O nome é obrigatório")]
+        [Required(ErrorMessage = "O CNPJ é obrigatório")]
         [RegularExpression(@"^\d{14}$", ErrorMessage = "CNPJ deve conter 14 dígitos numéricos")]
         public string Cnpj { get; set; }
 
         [Required(ErrorMessage = "O Endereço é obrigatório")]
-        public EnderecoSede enderecoSede { get; set; }
+        public EnderecoSedeDto EnderecoSede { get; set; }
 
     }
 }

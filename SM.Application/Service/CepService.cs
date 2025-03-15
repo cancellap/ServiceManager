@@ -6,7 +6,7 @@ using System.Text.Json;
 using System.Threading.Tasks;
 using SM.Domaiin.Entities;
 
-namespace SM.Infra.Service
+namespace SM.Application.Service
 {
     public class CepService
     {

@@ -1,18 +1,12 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\PedroCancellaOliveir\\Documents\\ServiceManager\\ServiceManager\\",
+  "WorkspaceRootPath": "C:\\Users\\Pedro\\PEDRO\\ServiceManager\\ServiceManager\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{045A94E7-A529-40EA-9ECE-50616E0FD9E2}|..\\SM.Workers\\SM.Workers.csproj|c:\\users\\pedrocancellaoliveir\\documents\\servicemanager\\sm.workers\\sm.workers.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+      "AbsoluteMoniker": "D:0:0:{5E8E01D9-738F-4362-9E58-00C937352E17}|..\\SM.Application\\SM.Application.csproj|c:\\users\\pedro\\pedro\\servicemanager\\sm.application\\mapping\\mapper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{3CDC3B4B-9CF5-4D0B-89A1-F38FCC3B36BD}|..\\SM.Domaiin\\SM.Domaiin.csproj|c:\\users\\pedrocancellaoliveir\\documents\\servicemanager\\sm.domaiin\\sm.domaiin.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{114D3C6C-E025-4F3B-B90D-BF9A371BD249}|..\\SM.Infra\\SM.Infra.csproj|c:\\users\\pedrocancellaoliveir\\documents\\servicemanager\\sm.infra\\sm.infra.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5E8E01D9-738F-4362-9E58-00C937352E17}|..\\SM.Application\\SM.Application.csproj|c:\\users\\pedrocancellaoliveir\\documents\\servicemanager\\sm.application\\sm.application.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+      "AbsoluteMoniker": "D:0:0:{5E8E01D9-738F-4362-9E58-00C937352E17}|..\\SM.Application\\SM.Application.csproj|c:\\users\\pedro\\pedro\\servicemanager\\sm.application\\dtos\\enderecosededto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,62 +16,43 @@
       "DocumentGroups": [
         {
           "DockedWidth": 144,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 4,
           "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
             },
             {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "SM.Workers",
-              "DocumentMoniker": "C:\\Users\\PedroCancellaOliveir\\Documents\\ServiceManager\\SM.Workers\\SM.Workers.csproj",
-              "RelativeDocumentMoniker": "..\\SM.Workers\\SM.Workers.csproj",
-              "ToolTip": "C:\\Users\\PedroCancellaOliveir\\Documents\\ServiceManager\\SM.Workers\\SM.Workers.csproj",
-              "RelativeToolTip": "..\\SM.Workers\\SM.Workers.csproj",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2025-03-14T19:30:46.055Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "SM.Infra",
-              "DocumentMoniker": "C:\\Users\\PedroCancellaOliveir\\Documents\\ServiceManager\\SM.Infra\\SM.Infra.csproj",
-              "RelativeDocumentMoniker": "..\\SM.Infra\\SM.Infra.csproj",
-              "ToolTip": "C:\\Users\\PedroCancellaOliveir\\Documents\\ServiceManager\\SM.Infra\\SM.Infra.csproj",
-              "RelativeToolTip": "..\\SM.Infra\\SM.Infra.csproj",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2025-03-14T19:26:27.898Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "SM.Application",
-              "DocumentMoniker": "C:\\Users\\PedroCancellaOliveir\\Documents\\ServiceManager\\SM.Application\\SM.Application.csproj",
-              "RelativeDocumentMoniker": "..\\SM.Application\\SM.Application.csproj",
-              "ToolTip": "C:\\Users\\PedroCancellaOliveir\\Documents\\ServiceManager\\SM.Application\\SM.Application.csproj",
-              "RelativeToolTip": "..\\SM.Application\\SM.Application.csproj",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAdAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2025-03-14T19:25:23.361Z",
-              "EditorCaption": ""
+              "$type": "Bookmark",
+              "Name": "ST:1:0:{d212f56b-c48a-434c-a121-1c5d80b59b9f}"
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "SM.Domaiin",
-              "DocumentMoniker": "C:\\Users\\PedroCancellaOliveir\\Documents\\ServiceManager\\SM.Domaiin\\SM.Domaiin.csproj",
-              "RelativeDocumentMoniker": "..\\SM.Domaiin\\SM.Domaiin.csproj",
-              "ToolTip": "C:\\Users\\PedroCancellaOliveir\\Documents\\ServiceManager\\SM.Domaiin\\SM.Domaiin.csproj",
-              "RelativeToolTip": "..\\SM.Domaiin\\SM.Domaiin.csproj",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2025-03-14T19:23:40.442Z",
+              "Title": "EnderecoSedeDto.cs",
+              "DocumentMoniker": "C:\\Users\\Pedro\\PEDRO\\ServiceManager\\SM.Application\\DTOs\\EnderecoSedeDto.cs",
+              "RelativeDocumentMoniker": "..\\SM.Application\\DTOs\\EnderecoSedeDto.cs",
+              "ToolTip": "C:\\Users\\Pedro\\PEDRO\\ServiceManager\\SM.Application\\DTOs\\EnderecoSedeDto.cs",
+              "RelativeToolTip": "..\\SM.Application\\DTOs\\EnderecoSedeDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-15T14:54:38.038Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Mapper.cs",
+              "DocumentMoniker": "C:\\Users\\Pedro\\PEDRO\\ServiceManager\\SM.Application\\Mapping\\Mapper.cs",
+              "RelativeDocumentMoniker": "..\\SM.Application\\Mapping\\Mapper.cs",
+              "ToolTip": "C:\\Users\\Pedro\\PEDRO\\ServiceManager\\SM.Application\\Mapping\\Mapper.cs",
+              "RelativeToolTip": "..\\SM.Application\\Mapping\\Mapper.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-15T14:50:51.379Z",
               "EditorCaption": ""
             }
           ]

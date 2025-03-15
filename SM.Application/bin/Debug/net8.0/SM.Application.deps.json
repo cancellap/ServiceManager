@@ -667,19 +667,20 @@
         },
         "runtime": {
           "SM.Domaiin.dll": {
-            "assemblyVersion": "1.0.0.0",
+            "assemblyVersion": "1.0.0",
             "fileVersion": "1.0.0.0"
           }
         }
       },
       "SM.Infra/1.0.0": {
         "dependencies": {
+          "AutoMapper": "14.0.0",
           "Npgsql.EntityFrameworkCore.PostgreSQL": "9.0.4",
           "SM.Domaiin": "1.0.0"
         },
         "runtime": {
           "SM.Infra.dll": {
-            "assemblyVersion": "1.0.0.0",
+            "assemblyVersion": "1.0.0",
             "fileVersion": "1.0.0.0"
           }
         }
