@@ -4,6 +4,10 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 17.13.35825.156
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServiceManager", "ServiceManager.csproj", "{6DFC36C1-A0C6-4A9D-982D-A5FC3D24A49A}"
+	ProjectSection(ProjectDependencies) = postProject
+		{114D3C6C-E025-4F3B-B90D-BF9A371BD249} = {114D3C6C-E025-4F3B-B90D-BF9A371BD249}
+		{3CDC3B4B-9CF5-4D0B-89A1-F38FCC3B36BD} = {3CDC3B4B-9CF5-4D0B-89A1-F38FCC3B36BD}
+	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1- Presentation", "1- Presentation", "{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}"
 EndProject
@@ -24,6 +28,10 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "5- Workers", "5- Workers", "{660B01D9-CDCA-4549-BFF2-CFE49CA7DEB3}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SM.Workers", "..\SM.Workers\SM.Workers.csproj", "{045A94E7-A529-40EA-9ECE-50616E0FD9E2}"
+	ProjectSection(ProjectDependencies) = postProject
+		{3CDC3B4B-9CF5-4D0B-89A1-F38FCC3B36BD} = {3CDC3B4B-9CF5-4D0B-89A1-F38FCC3B36BD}
+		{6DFC36C1-A0C6-4A9D-982D-A5FC3D24A49A} = {6DFC36C1-A0C6-4A9D-982D-A5FC3D24A49A}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
