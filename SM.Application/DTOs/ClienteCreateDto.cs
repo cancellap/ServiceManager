@@ -25,8 +25,8 @@ namespace SM.Application.DTOs
         [RegularExpression(@"^\d{14}$", ErrorMessage = "CNPJ deve conter 14 dígitos numéricos")]
         public string Cnpj { get; set; }
 
-        [Required(ErrorMessage = "O Endereço é obrigatório")]
-        public EnderecoSedeDto EnderecoSede { get; set; }
+        [Required(ErrorMessage = "O Endereço é obrigatório 2")]
+        public EnderecoSedeCreateDto EnderecoSedeCreateDto { get; set; }
 
     }
 }

@@ -268,3 +268,9 @@ C:\Users\Pedro\PEDRO\ServiceManager\SM.Workers\obj\Debug\net8.0\refint\SM.Worker
 C:\Users\Pedro\PEDRO\ServiceManager\SM.Workers\obj\Debug\net8.0\SM.Workers.pdb
 C:\Users\Pedro\PEDRO\ServiceManager\SM.Workers\obj\Debug\net8.0\SM.Workers.genruntimeconfig.cache
 C:\Users\Pedro\PEDRO\ServiceManager\SM.Workers\obj\Debug\net8.0\ref\SM.Workers.dll
+C:\Users\PedroCancellaOliveir\Desktop\ServiceManager\SM.Workers\obj\Debug\net8.0\SM.Workers.csproj.AssemblyReference.cache
+C:\Users\PedroCancellaOliveir\Desktop\ServiceManager\SM.Workers\obj\Debug\net8.0\SM.Workers.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\PedroCancellaOliveir\Desktop\ServiceManager\SM.Workers\obj\Debug\net8.0\SM.Workers.AssemblyInfoInputs.cache
+C:\Users\PedroCancellaOliveir\Desktop\ServiceManager\SM.Workers\obj\Debug\net8.0\SM.Workers.AssemblyInfo.cs
+C:\Users\PedroCancellaOliveir\Desktop\ServiceManager\SM.Workers\obj\Debug\net8.0\SM.Workers.csproj.CoreCompileInputs.cache
+C:\Users\PedroCancellaOliveir\Desktop\ServiceManager\SM.Workers\obj\Debug\net8.0\SM.Workers.sourcelink.json

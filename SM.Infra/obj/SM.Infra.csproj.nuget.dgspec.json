@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Pedro\\PEDRO\\ServiceManager\\SM.Infra\\SM.Infra.csproj": {}
+    "C:\\Users\\PedroCancellaOliveir\\Desktop\\ServiceManager\\SM.Infra\\SM.Infra.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Pedro\\PEDRO\\ServiceManager\\SM.Domaiin\\SM.Domaiin.csproj": {
+    "C:\\Users\\PedroCancellaOliveir\\Desktop\\ServiceManager\\SM.Domaiin\\SM.Domaiin.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Pedro\\PEDRO\\ServiceManager\\SM.Domaiin\\SM.Domaiin.csproj",
+        "projectUniqueName": "C:\\Users\\PedroCancellaOliveir\\Desktop\\ServiceManager\\SM.Domaiin\\SM.Domaiin.csproj",
         "projectName": "SM.Domaiin",
-        "projectPath": "C:\\Users\\Pedro\\PEDRO\\ServiceManager\\SM.Domaiin\\SM.Domaiin.csproj",
-        "packagesPath": "C:\\Users\\Pedro\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Pedro\\PEDRO\\ServiceManager\\SM.Domaiin\\obj\\",
+        "projectPath": "C:\\Users\\PedroCancellaOliveir\\Desktop\\ServiceManager\\SM.Domaiin\\SM.Domaiin.csproj",
+        "packagesPath": "C:\\Users\\PedroCancellaOliveir\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\PedroCancellaOliveir\\Desktop\\ServiceManager\\SM.Domaiin\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\Pedro\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\PedroCancellaOliveir\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -43,8 +43,7 @@
           "enableAudit": "true",
           "auditLevel": "low",
           "auditMode": "direct"
-        },
-        "SdkAnalysisLevel": "9.0.100"
+        }
       },
       "frameworks": {
         "net8.0": {
@@ -54,11 +53,11 @@
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
               "target": "Package",
-              "version": "[9.0.3, )"
+              "version": "[8.0.14, )"
             },
             "Npgsql.EntityFrameworkCore.PostgreSQL": {
               "target": "Package",
-              "version": "[9.0.4, )"
+              "version": "[8.0.11, )"
             }
           },
           "imports": [
@@ -80,24 +79,24 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.101/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.407/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\Pedro\\PEDRO\\ServiceManager\\SM.Infra\\SM.Infra.csproj": {
+    "C:\\Users\\PedroCancellaOliveir\\Desktop\\ServiceManager\\SM.Infra\\SM.Infra.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Pedro\\PEDRO\\ServiceManager\\SM.Infra\\SM.Infra.csproj",
+        "projectUniqueName": "C:\\Users\\PedroCancellaOliveir\\Desktop\\ServiceManager\\SM.Infra\\SM.Infra.csproj",
         "projectName": "SM.Infra",
-        "projectPath": "C:\\Users\\Pedro\\PEDRO\\ServiceManager\\SM.Infra\\SM.Infra.csproj",
-        "packagesPath": "C:\\Users\\Pedro\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Pedro\\PEDRO\\ServiceManager\\SM.Infra\\obj\\",
+        "projectPath": "C:\\Users\\PedroCancellaOliveir\\Desktop\\ServiceManager\\SM.Infra\\SM.Infra.csproj",
+        "packagesPath": "C:\\Users\\PedroCancellaOliveir\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\PedroCancellaOliveir\\Desktop\\ServiceManager\\SM.Infra\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\Pedro\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\PedroCancellaOliveir\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -112,8 +111,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\Pedro\\PEDRO\\ServiceManager\\SM.Domaiin\\SM.Domaiin.csproj": {
-                "projectPath": "C:\\Users\\Pedro\\PEDRO\\ServiceManager\\SM.Domaiin\\SM.Domaiin.csproj"
+              "C:\\Users\\PedroCancellaOliveir\\Desktop\\ServiceManager\\SM.Domaiin\\SM.Domaiin.csproj": {
+                "projectPath": "C:\\Users\\PedroCancellaOliveir\\Desktop\\ServiceManager\\SM.Domaiin\\SM.Domaiin.csproj"
               }
             }
           }
@@ -127,8 +126,7 @@
           "enableAudit": "true",
           "auditLevel": "low",
           "auditMode": "direct"
-        },
-        "SdkAnalysisLevel": "9.0.100"
+        }
       },
       "frameworks": {
         "net8.0": {
@@ -138,15 +136,19 @@
               "target": "Package",
               "version": "[14.0.0, )"
             },
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[8.0.14, )"
+            },
             "Microsoft.EntityFrameworkCore.Design": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
               "target": "Package",
-              "version": "[9.0.3, )"
+              "version": "[8.0.14, )"
             },
             "Npgsql.EntityFrameworkCore.PostgreSQL": {
               "target": "Package",
-              "version": "[9.0.4, )"
+              "version": "[8.0.11, )"
             }
           },
           "imports": [
@@ -168,7 +170,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.101/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.407/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

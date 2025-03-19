@@ -17,7 +17,7 @@ namespace SM.Infra.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "9.0.3")
+                .HasAnnotation("ProductVersion", "8.0.14")
                 .HasAnnotation("Relational:MaxIdentifierLength", 63);
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
@@ -83,10 +83,6 @@ namespace SM.Infra.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<string>("Complemento")
-                        .IsRequired()
-                        .HasColumnType("text");
-
                     b.Property<DateTime?>("CreatedAt")
                         .HasColumnType("timestamp with time zone");
 
@@ -131,6 +127,10 @@ namespace SM.Infra.Migrations
                     b.Property<int>("ClienteId")
                         .HasColumnType("integer");
 
+                    b.Property<string>("Complemento")
+                        .IsRequired()
+                        .HasColumnType("text");
+
                     b.Property<DateTime?>("CreatedAt")
                         .HasColumnType("timestamp with time zone");
 
@@ -153,13 +153,13 @@ namespace SM.Infra.Migrations
 
                     b.HasIndex("EnderecoId");
 
-                    b.ToTable("EnderecoSede");
+                    b.ToTable("EnderecoSedes");
                 });
 
             modelBuilder.Entity("SM.Domaiin.Entities.EnderecoSede", b =>
                 {
                     b.HasOne("SM.Domaiin.Entities.Cliente", "Cliente")
-                        .WithOne("enderecoSede")
+                        .WithOne("EnderecoSede")
                         .HasForeignKey("SM.Domaiin.Entities.EnderecoSede", "ClienteId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -177,7 +177,7 @@ namespace SM.Infra.Migrations
 
             modelBuilder.Entity("SM.Domaiin.Entities.Cliente", b =>
                 {
-                    b.Navigation("enderecoSede")
+                    b.Navigation("EnderecoSede")
                         .IsRequired();
                 });
 #pragma warning restore 612, 618

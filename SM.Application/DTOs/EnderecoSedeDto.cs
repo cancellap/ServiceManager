@@ -10,7 +10,6 @@ namespace SM.Application.DTOs
 {
     public class EnderecoSedeDto
     {
-        [Required(ErrorMessage = "O Endereço é obrigatório")]
-        public Endereco Endereco { get; set; }
+        public EnderecoDto EnderecoDto { get; set; }
     }
 }

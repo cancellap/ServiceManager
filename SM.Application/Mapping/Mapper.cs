@@ -1,19 +1,35 @@
 ﻿using AutoMapper;
-using SM.Domaiin.Entities; 
-using SM.Application.DTOs; 
-
+using SM.Application.DTOs;
+using SM.Domaiin.Entities;
 namespace SM.Application.Mapping
 {
-    public class Mapper : Profile 
+    public class Mapper : Profile
     {
         public Mapper()
         {
-            CreateMap<EnderecoSedeDto, EnderecoSede>();
-            CreateMap<ClienteCreateDto, Cliente>();
-            CreateMap<ClienteDto, Cliente >();
-            CreateMap<Cliente, ClienteDto>()
-                .ForMember(dest => dest.enderecoSede, opt => opt.Ignore());
+            CreateMap<Cliente, ClienteCreateDto>()
+                .ForMember(dest => dest.EnderecoSedeCreateDto, opt => opt.MapFrom(src => src.EnderecoSede));
 
+            CreateMap<ClienteCreateDto, Cliente>()
+                .ForMember(dest => dest.EnderecoSede, opt => opt.MapFrom(src => src.EnderecoSedeCreateDto));
+
+            CreateMap<Cliente, ClienteDto>()
+                .ForMember(dest => dest.EnderecoSedeDto, opt => opt.MapFrom(src => src.EnderecoSede));
+
+            CreateMap<ClienteDto, Cliente>()
+                .ForMember(dest => dest.EnderecoSede, opt => opt.MapFrom(src => src.EnderecoSedeDto));
+
+            CreateMap<EnderecoSedeCreateDto, EnderecoSede>()
+                .ForMember(dest => dest.Endereco, opt => opt.MapFrom(src => src.Endereco))
+                .ForMember(dest => dest.Complemento, opt => opt.MapFrom(src => src.Complemento));
+
+            CreateMap<Endereco, EnderecoDto>();
+
+            CreateMap<EnderecoSede, EnderecoSedeDto>()
+                .ForMember(dest => dest.EnderecoDto, opt => opt.MapFrom(src => src.Endereco));
+
+            CreateMap<EnderecoSedeDto, EnderecoSede>()
+                .ForMember(dest => dest.Endereco, opt => opt.MapFrom(src => src.EnderecoDto));
         }
     }
 }

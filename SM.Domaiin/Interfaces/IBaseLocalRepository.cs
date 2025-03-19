@@ -10,7 +10,7 @@ namespace SM.Domaiin.Interfaces
     public interface IBaseLocalRepository<TEntity> where TEntity : IEntityLocal
     {
         Task<List<TEntity>> GetAll();
-        Task<TEntity> FindOne(Expression<Func<TEntity, bool>> predicate);
+        Task<TEntity> FindOneId(int id);
         Task<TEntity> AddAsync(TEntity entity);
         Task<TEntity> deleteAsync(TEntity entity);
     }

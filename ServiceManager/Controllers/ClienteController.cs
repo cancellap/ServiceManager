@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.OpenApi.Writers;
 using SM.Application.DTOs;
 using SM.Application.Service;
 
@@ -16,20 +17,43 @@ namespace ServiceManager.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> CreateClienteAsync([FromBody] ClienteCreateDto clienteCreateDto)
+        public async Task<ActionResult<ClienteDto>> CreateClienteAsync([FromBody] ClienteCreateDto clienteCreateDto)
         {
+            if (clienteCreateDto == null)
+            {
+                return BadRequest("Os dados do cliente não podem ser nulos.");
+            }
+
             try
             {
                 var clienteDto = await _clienteService.CreateClienteAsync(clienteCreateDto);
 
-                // var uri = Url.Action(nameof(GetClienteByIdAsync), new { id = clienteDto.Id });
-                // return Created(uri, clienteDto);
-                return Ok(clienteDto);
+                var uri = Url.Action(nameof(GetClienteByIdAsync), new { id = clienteDto.Id });
+                return Created(uri, clienteDto);
             }
             catch (Exception ex)
             {
-                return BadRequest(ex.Message);
+                return StatusCode(500, $"Erro ao criar cliente: {ex.Message}");
             }
+        }
+        [HttpGet]
+        [Route("getAll")]
+        public async Task<ActionResult<ClienteDto>> GetAllClientesAsync()
+        {
+            var clientes = await _clienteService.GetAllClientesAsync();
+            if (clientes == null)
+                return NoContent();
+            return Ok(clientes);
+        }
+
+        [HttpGet]
+        [Route("{id}")]
+        public async Task<IActionResult> GetClienteByIdAsync(int id)
+        {
+            var cliente = await _clienteService.GetClienteByIdAsync(id);
+            if (cliente == null)
+                return NotFound();
+            return Ok(cliente);
         }
     }
 }

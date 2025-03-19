@@ -30,7 +30,12 @@ namespace SM.Infra.Repositories.Base
             return entity;
         }
 
-        public async Task<TEntity> FindOne(Expression<Func<TEntity, bool>> predicate)
+        public async Task<TEntity> FindOneId(int id)
+        {
+            return await _dBContext.Set<TEntity>().FirstOrDefaultAsync(e=> e.Id == id);
+        }
+
+        public async Task<TEntity> FindOneAsyncPredicate(Expression<Func<TEntity, bool>> predicate)
         {
             return await _dBContext.Set<TEntity>().FirstOrDefaultAsync(predicate);
         }

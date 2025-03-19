@@ -1,12 +1,11 @@
 {
   "Version": 1,
-  "Hash": "PFp4Dqd9kVPOZbrYXJrk/KVNoBNmKVIJenRDs4MfFtY=",
+  "Hash": "iaOgNLOj/T0eK4NoTtha0unP722m//O2scObbEh9XQY=",
   "Source": "ServiceManager",
   "BasePath": "_content/ServiceManager",
   "Mode": "Default",
   "ManifestType": "Build",
   "ReferencedProjectsConfiguration": [],
   "DiscoveryPatterns": [],
-  "Assets": [],
-  "Endpoints": []
+  "Assets": []
 }

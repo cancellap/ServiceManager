@@ -1,4 +1,6 @@
 ﻿using AutoMapper;
+using Microsoft.AspNetCore.Http.HttpResults;
+using Microsoft.EntityFrameworkCore;
 using SM.Application.DTOs;
 using SM.Application.Interfaces;
 using SM.Domaiin.Entities;
@@ -12,18 +14,30 @@ using System.Threading.Tasks;
 
 namespace SM.Application.Service
 {
-    public class ClienteService : IClienteService
+    public class ClienteService(ClienteRespository clienteRepository, IMapper mapper, EnderecoRepository enderecoRepository) : IClienteService
     {
+        private readonly EnderecoRepository _enderecoRepository = enderecoRepository;
+        private readonly ClienteRespository _clienteRepository = clienteRepository;
+        private readonly IMapper _mapper = mapper;
 
-        private readonly ClienteRespository _clienteRepository;
-        private readonly IMapper _mapper;
-        public ClienteService(ClienteRespository clienteRepository, IMapper mapper)
+        public async Task<int> ObterOuCriarEnderecoAsync(Endereco endereco)
         {
-            _clienteRepository = clienteRepository;
-            _mapper = mapper;
+            var enderecoExistente = await _enderecoRepository.
+                GetEnderecoByDetailsAsync(endereco.Rua, endereco.Cidade, endereco.Estado, endereco.Cep);
+
+
+            if (enderecoExistente != null)
+            {
+                return enderecoExistente.Id;
+            }
+
+            await _enderecoRepository.AddAsync(endereco);
+
+
+            return endereco.Id;
         }
 
-       
+
         public async Task<ClienteDto> CreateClienteAsync(ClienteCreateDto clienteCreateDto)
         {
 
@@ -32,15 +46,20 @@ namespace SM.Application.Service
             if (clienteExistente != null)
                 throw new Exception("Cliente já cadastrado");
 
-            var clienteEntity = _mapper.Map<Cliente>(clienteCreateDto);
+            var cliente = _mapper.Map<Cliente>(clienteCreateDto);
 
-            var enderecoSedeEntity = _mapper.Map<EnderecoSede>(clienteCreateDto.EnderecoSede);
-            clienteEntity.enderecoSede = enderecoSedeEntity;
+            var enderecoCliente = cliente.EnderecoSede.Endereco;
+            var enderecoId = await ObterOuCriarEnderecoAsync(enderecoCliente);
+            Console.WriteLine(enderecoId);
 
-            await _clienteRepository.AddAsync(clienteEntity);
+            cliente.EnderecoSede.EnderecoId = enderecoId;
 
-            var clienteDto = _mapper.Map<ClienteDto>(clienteEntity);
+            var enderecoSedeEntity = _mapper.Map<EnderecoSede>(clienteCreateDto.EnderecoSedeCreateDto);
+            cliente.EnderecoSede = enderecoSedeEntity;
 
+            await _clienteRepository.AddAsync(cliente);
+
+            var clienteDto = _mapper.Map<ClienteDto>(cliente);
             return clienteDto;
         }
 
@@ -49,14 +68,23 @@ namespace SM.Application.Service
             throw new NotImplementedException();
         }
 
-        public Task<IEnumerable<ClienteDto>> GetAllClientesAsync()
+        public async Task<IEnumerable<ClienteDto>> GetAllClientesAsync()
         {
-            throw new NotImplementedException();
+            var listaCliente = (await _clienteRepository.GetAll());
+            if (listaCliente.Count == 0)
+                return null;
+            var dtos = _mapper.Map<IEnumerable<ClienteDto>>(listaCliente);
+            return dtos;
         }
 
-        public Task<ClienteDto> GetClienteByIdAsync(int id)
+
+        public async Task<ClienteDto> GetClienteByIdAsync(int id)
         {
-            throw new NotImplementedException();
+            var cliente = await _clienteRepository.FindOneId(id);
+            if (cliente == null)
+                return null;
+            var dto = _mapper.Map<ClienteDto>(cliente);
+            return dto;
         }
     }
 }

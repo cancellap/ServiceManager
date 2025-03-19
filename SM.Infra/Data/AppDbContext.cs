@@ -14,9 +14,6 @@ namespace SM.Infra.Data
 
         public AppDbContext(DbContextOptions<AppDbContext> options) : base(options) { }
 
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-       => optionsBuilder.UseNpgsql("Host=localhost;Database=sm;Username=postgres;Password=1234");
-
         public class ConverteUtc : ValueConverter<DateTime, DateTime>
         {
             public ConverteUtc()
@@ -46,5 +43,8 @@ namespace SM.Infra.Data
         }
 
         public DbSet<Cliente> Clientes { get; set; }
+        public DbSet<Endereco> Endereco { get; set; }
+
+        public DbSet<EnderecoSede> EnderecoSedes { get; set; }
     }
 }

@@ -31,6 +31,75 @@
         },
         "responses": {
           "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClienteDto"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClienteDto"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClienteDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Cliente/getAll": {
+      "get": {
+        "tags": [
+          "Cliente"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClienteDto"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClienteDto"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClienteDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Cliente/{id}": {
+      "get": {
+        "tags": [
+          "Cliente"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
             "description": "OK"
           }
         }
@@ -43,7 +112,7 @@
         "required": [
           "cnpj",
           "email",
-          "enderecoSede",
+          "enderecoSedeCreateDto",
           "nomeFantasia",
           "razaoSocial"
         ],
@@ -68,7 +137,36 @@
             "pattern": "^\\d{14}$",
             "type": "string"
           },
-          "enderecoSede": {
+          "enderecoSedeCreateDto": {
+            "$ref": "#/components/schemas/EnderecoSedeCreateDto"
+          }
+        },
+        "additionalProperties": false
+      },
+      "ClienteDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "razaoSocial": {
+            "type": "string",
+            "nullable": true
+          },
+          "nomeFantasia": {
+            "type": "string",
+            "nullable": true
+          },
+          "email": {
+            "type": "string",
+            "nullable": true
+          },
+          "cnpj": {
+            "type": "string",
+            "nullable": true
+          },
+          "enderecoSedeDto": {
             "$ref": "#/components/schemas/EnderecoSedeDto"
           }
         },
@@ -126,22 +224,66 @@
           "cep": {
             "type": "string",
             "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "EnderecoDto": {
+        "type": "object",
+        "properties": {
+          "rua": {
+            "type": "string",
+            "nullable": true
           },
-          "complemento": {
+          "numero": {
+            "type": "string",
+            "nullable": true
+          },
+          "bairro": {
+            "type": "string",
+            "nullable": true
+          },
+          "cidade": {
+            "type": "string",
+            "nullable": true
+          },
+          "estado": {
+            "type": "string",
+            "nullable": true
+          },
+          "pais": {
+            "type": "string",
+            "nullable": true
+          },
+          "cep": {
             "type": "string",
             "nullable": true
           }
         },
         "additionalProperties": false
       },
-      "EnderecoSedeDto": {
+      "EnderecoSedeCreateDto": {
         "required": [
+          "complemento",
           "endereco"
         ],
         "type": "object",
         "properties": {
           "endereco": {
             "$ref": "#/components/schemas/Endereco"
+          },
+          "complemento": {
+            "minLength": 1,
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "EnderecoSedeDto": {
+        "type": "object",
+        "properties": {
+          "enderecoDto": {
+            "$ref": "#/components/schemas/EnderecoDto"
           }
         },
         "additionalProperties": false

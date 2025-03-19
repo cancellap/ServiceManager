@@ -9,11 +9,13 @@ var builder = WebApplication.CreateBuilder(args);
 
 
 builder.Services.AddDbContext<AppDbContext>(options =>
-    options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection"))
-);
+    options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection"),
+         b => b.MigrationsAssembly("SM.Infra")));
 
 builder.Services.AddScoped<ClienteRespository>();
+builder.Services.AddScoped<EnderecoRepository>();
 builder.Services.AddScoped<IClienteRepository, ClienteRespository>();
+builder.Services.AddScoped<IEnderecoRepository, EnderecoRepository>();
 builder.Services.AddScoped<ClienteService>();
 builder.Services.AddAutoMapper(typeof(SM.Application.Mapping.Mapper));
 
