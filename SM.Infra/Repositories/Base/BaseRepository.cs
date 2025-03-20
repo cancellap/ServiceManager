@@ -47,7 +47,7 @@ namespace SM.Infra.Repositories.Base
 
         public async Task<TEntity> deleteAsync(TEntity entity)
         {
-            entity.DeletedAt = DateTime.Now;
+            entity.DeletedAt = DateTime.UtcNow;
             entity.IsDeleted = true;
             _dBContext.Set<TEntity>().Update(entity);
             await _dBContext.SaveChangesAsync();

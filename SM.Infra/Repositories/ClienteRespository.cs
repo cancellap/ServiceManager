@@ -17,10 +17,16 @@ namespace SM.Infra.Repositories
         {
         }
 
-        public async Task<Cliente> GetClienteByCnpjAsync(string cnpj)
+        public async Task<Cliente?> GetClienteByCnpjAsync(string cnpj)
         {
-            return await _dBContext.Clientes
-                .FirstOrDefaultAsync(x => x.Cnpj == cnpj);
+
+            var cliente = await _dBContext.Clientes
+               .Where(c => c.Cnpj == cnpj)
+               .Include(c => c.EnderecoSede)
+                   .ThenInclude(es => es.Endereco)
+               .FirstOrDefaultAsync();
+
+            return cliente;
         }
 
         public async Task<Cliente?> GetByIdClientesAsync(int id)
@@ -32,6 +38,13 @@ namespace SM.Infra.Repositories
                 .FirstOrDefaultAsync();
 
             return cliente;
+        }
+        public async Task<List<Cliente>> GetAllClientesAsync()
+        {
+            return await _dBContext.Clientes
+                .Include(c => c.EnderecoSede)
+                    .ThenInclude(es => es.Endereco)
+                .ToListAsync();
         }
     }
 

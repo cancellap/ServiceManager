@@ -6,11 +6,7 @@
       "AbsoluteMoniker": "D:0:0:{5E8E01D9-738F-4362-9E58-00C937352E17}|..\\SM.Application\\SM.Application.csproj|c:\\users\\pedrocancellaoliveir\\desktop\\servicemanager\\sm.application\\service\\clienteservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{114D3C6C-E025-4F3B-B90D-BF9A371BD249}|..\\SM.Infra\\SM.Infra.csproj|c:\\users\\pedrocancellaoliveir\\desktop\\servicemanager\\sm.infra\\data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6DFC36C1-A0C6-4A9D-982D-A5FC3D24A49A}|ServiceManager.csproj|c:\\users\\pedrocancellaoliveir\\desktop\\servicemanager\\servicemanager\\controllers\\clientecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6DFC36C1-A0C6-4A9D-982D-A5FC3D24A49A}|ServiceManager.csproj|solutionrelative:controllers\\clientecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{114D3C6C-E025-4F3B-B90D-BF9A371BD249}|..\\SM.Infra\\SM.Infra.csproj|c:\\users\\pedrocancellaoliveir\\desktop\\servicemanager\\sm.infra\\repositories\\base\\baserepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -20,7 +16,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 144,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Bookmark",
@@ -37,27 +33,14 @@
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "AppDbContext.cs",
-              "DocumentMoniker": "C:\\Users\\PedroCancellaOliveir\\Desktop\\ServiceManager\\SM.Infra\\Data\\AppDbContext.cs",
-              "RelativeDocumentMoniker": "..\\SM.Infra\\Data\\AppDbContext.cs",
-              "ToolTip": "C:\\Users\\PedroCancellaOliveir\\Desktop\\ServiceManager\\SM.Infra\\Data\\AppDbContext.cs",
-              "RelativeToolTip": "..\\SM.Infra\\Data\\AppDbContext.cs",
-              "ViewState": "AgIAABsAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Title": "BaseRepository.cs",
+              "DocumentMoniker": "C:\\Users\\PedroCancellaOliveir\\Desktop\\ServiceManager\\SM.Infra\\Repositories\\Base\\BaseRepository.cs",
+              "RelativeDocumentMoniker": "..\\SM.Infra\\Repositories\\Base\\BaseRepository.cs",
+              "ToolTip": "C:\\Users\\PedroCancellaOliveir\\Desktop\\ServiceManager\\SM.Infra\\Repositories\\Base\\BaseRepository.cs",
+              "RelativeToolTip": "..\\SM.Infra\\Repositories\\Base\\BaseRepository.cs",
+              "ViewState": "AgIAACIAAAAAAAAAAAAAADEAAAAvAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-20T13:57:18.635Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "ClienteController.cs",
-              "DocumentMoniker": "C:\\Users\\PedroCancellaOliveir\\Desktop\\ServiceManager\\ServiceManager\\Controllers\\ClienteController.cs",
-              "RelativeDocumentMoniker": "Controllers\\ClienteController.cs",
-              "ToolTip": "C:\\Users\\PedroCancellaOliveir\\Desktop\\ServiceManager\\ServiceManager\\Controllers\\ClienteController.cs",
-              "RelativeToolTip": "Controllers\\ClienteController.cs",
-              "ViewState": "AgIAACgAAAAAAAAAAIA8wDQAAABGAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-20T13:56:24.824Z",
+              "WhenOpened": "2025-03-20T16:03:40.559Z",
               "EditorCaption": ""
             },
             {
@@ -68,9 +51,9 @@
               "RelativeDocumentMoniker": "..\\SM.Application\\Service\\ClienteService.cs",
               "ToolTip": "C:\\Users\\PedroCancellaOliveir\\Desktop\\ServiceManager\\SM.Application\\Service\\ClienteService.cs",
               "RelativeToolTip": "..\\SM.Application\\Service\\ClienteService.cs",
-              "ViewState": "AgIAAEoAAAAAAAAAAAAwwFkAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAC0AAAAAAAAAAAAvwD8AAAAsAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-19T17:40:16.263Z",
+              "WhenOpened": "2025-03-20T14:48:21.955Z",
               "EditorCaption": ""
             }
           ]

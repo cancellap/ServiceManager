@@ -55,5 +55,30 @@ namespace ServiceManager.Controllers
                 return NotFound();
             return Ok(clienteDto);
         }
+
+        [HttpGet]
+        [Route("cnpj/{cnpj}")]
+        public async Task<IActionResult> GetClienteByCnpjAsync(string cnpj)
+        {
+            var clienteDto = await _clienteService.GetClienteByCnpjAsync(cnpj);
+            if (clienteDto == null)
+                return NotFound();
+            return Ok(clienteDto);
+        }
+
+        [HttpDelete]
+        [Route("{id}")]
+        public async Task<IActionResult> DeleteClienteAsync(int id)
+        {
+            try
+            {
+                var clienteDto = await _clienteService.DeleteClienteAsync(id);
+                return Ok(clienteDto);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"Erro ao deletar cliente: {ex.Message}");
+            }
+        }
     }
 }

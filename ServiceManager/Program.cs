@@ -14,6 +14,8 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 
 builder.Services.AddScoped<ClienteRespository>();
 builder.Services.AddScoped<EnderecoRepository>();
+builder.Services.AddScoped<EnderecoSedeRepository>();
+builder.Services.AddScoped<IEnderecoSedeRepository, EnderecoSedeRepository>();
 builder.Services.AddScoped<IClienteRepository, ClienteRespository>();
 builder.Services.AddScoped<IEnderecoRepository, EnderecoRepository>();
 builder.Services.AddScoped<ClienteService>();
