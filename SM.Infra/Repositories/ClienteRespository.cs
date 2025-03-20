@@ -17,10 +17,21 @@ namespace SM.Infra.Repositories
         {
         }
 
-        public async Task<Cliente?> GetClienteByCnpjAsync(string cnpj)
+        public async Task<Cliente> GetClienteByCnpjAsync(string cnpj)
         {
             return await _dBContext.Clientes
                 .FirstOrDefaultAsync(x => x.Cnpj == cnpj);
+        }
+
+        public async Task<Cliente?> GetByIdClientesAsync(int id)
+        {
+            var cliente = await _dBContext.Clientes
+                .Where(c => c.Id == id)
+                .Include(c => c.EnderecoSede)
+                    .ThenInclude(es => es.Endereco)
+                .FirstOrDefaultAsync();
+
+            return cliente;
         }
     }
 

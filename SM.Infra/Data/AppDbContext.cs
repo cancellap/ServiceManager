@@ -2,16 +2,11 @@
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SM.Domaiin.Entities;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SM.Infra.Data
 {
     public class AppDbContext : DbContext
     {
-
         public AppDbContext(DbContextOptions<AppDbContext> options) : base(options) { }
 
         public class ConverteUtc : ValueConverter<DateTime, DateTime>
@@ -40,11 +35,19 @@ namespace SM.Infra.Data
                 .Property(e => e.UpdatedAt)
                 .HasConversion(new ConverteUtc());
 
+            modelBuilder.Entity<Cliente>()
+                .HasOne(c => c.EnderecoSede)
+                .WithOne(es => es.Cliente)
+                .HasForeignKey<EnderecoSede>(es => es.ClienteId); 
+
+            modelBuilder.Entity<EnderecoSede>()
+                .HasOne(es => es.Endereco)
+                .WithOne() 
+                .HasForeignKey<EnderecoSede>(es => es.EnderecoId);
         }
 
         public DbSet<Cliente> Clientes { get; set; }
         public DbSet<Endereco> Endereco { get; set; }
-
         public DbSet<EnderecoSede> EnderecoSedes { get; set; }
     }
 }

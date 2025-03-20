@@ -25,15 +25,15 @@ namespace SM.Application.Service
             var enderecoExistente = await _enderecoRepository.
                 GetEnderecoByDetailsAsync(endereco.Rua, endereco.Cidade, endereco.Estado, endereco.Cep);
 
-
             if (enderecoExistente != null)
             {
+                Console.WriteLine("Endereco já existe" + enderecoExistente.Id);
                 return enderecoExistente.Id;
             }
 
             await _enderecoRepository.AddAsync(endereco);
 
-
+            Console.WriteLine("Endereco criado" + endereco.Id);
             return endereco.Id;
         }
 
@@ -46,21 +46,25 @@ namespace SM.Application.Service
             if (clienteExistente != null)
                 throw new Exception("Cliente já cadastrado");
 
-            var cliente = _mapper.Map<Cliente>(clienteCreateDto);
+            var clienteEntity = _mapper.Map<Cliente>(clienteCreateDto);
 
-            var enderecoCliente = cliente.EnderecoSede.Endereco;
-            var enderecoId = await ObterOuCriarEnderecoAsync(enderecoCliente);
-            Console.WriteLine(enderecoId);
+            int enderecoId = await ObterOuCriarEnderecoAsync(clienteEntity.EnderecoSede.Endereco);
 
-            cliente.EnderecoSede.EnderecoId = enderecoId;
+            var enderecoSede = new EnderecoSede
+            {
+                ClienteId = clienteEntity.Id,
+                EnderecoId = enderecoId,
+                Complemento = clienteCreateDto.EnderecoSedeCreateDto.Complemento,
+            };
 
-            var enderecoSedeEntity = _mapper.Map<EnderecoSede>(clienteCreateDto.EnderecoSedeCreateDto);
-            cliente.EnderecoSede = enderecoSedeEntity;
+            clienteEntity.EnderecoSede = enderecoSede;
 
-            await _clienteRepository.AddAsync(cliente);
+            var clienteCriado = await _clienteRepository.AddAsync(clienteEntity);
 
-            var clienteDto = _mapper.Map<ClienteDto>(cliente);
+            var clienteDto = _mapper.Map<ClienteDto>(clienteCriado);
+
             return clienteDto;
+
         }
 
         public Task<ClienteDto> DeleteClienteAsync(int id)
@@ -80,11 +84,13 @@ namespace SM.Application.Service
 
         public async Task<ClienteDto> GetClienteByIdAsync(int id)
         {
-            var cliente = await _clienteRepository.FindOneId(id);
+            var cliente = await _clienteRepository.GetByIdClientesAsync(id);
             if (cliente == null)
                 return null;
-            var dto = _mapper.Map<ClienteDto>(cliente);
-            return dto;
+
+            var clienteDto = _mapper.Map<ClienteDto>(cliente);
+
+            return clienteDto;
         }
     }
 }

@@ -50,10 +50,10 @@ namespace ServiceManager.Controllers
         [Route("{id}")]
         public async Task<IActionResult> GetClienteByIdAsync(int id)
         {
-            var cliente = await _clienteService.GetClienteByIdAsync(id);
-            if (cliente == null)
+            var clienteDto = await _clienteService.GetClienteByIdAsync(id);
+            if (clienteDto == null)
                 return NotFound();
-            return Ok(cliente);
+            return Ok(clienteDto);
         }
     }
 }

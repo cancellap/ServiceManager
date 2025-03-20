@@ -16,7 +16,7 @@ namespace SM.Domaiin.Entities
         public string Email { get; set; }
         public string Cnpj { get; set; }
         [InverseProperty("Cliente")]
-        public EnderecoSede EnderecoSede { get; set; }
+        public EnderecoSede? EnderecoSede { get; set; }
 
         public Cliente() { }
 

@@ -13,23 +13,23 @@ namespace SM.Application.Mapping
             CreateMap<ClienteCreateDto, Cliente>()
                 .ForMember(dest => dest.EnderecoSede, opt => opt.MapFrom(src => src.EnderecoSedeCreateDto));
 
-            CreateMap<Cliente, ClienteDto>()
-                .ForMember(dest => dest.EnderecoSedeDto, opt => opt.MapFrom(src => src.EnderecoSede));
-
-            CreateMap<ClienteDto, Cliente>()
-                .ForMember(dest => dest.EnderecoSede, opt => opt.MapFrom(src => src.EnderecoSedeDto));
-
             CreateMap<EnderecoSedeCreateDto, EnderecoSede>()
                 .ForMember(dest => dest.Endereco, opt => opt.MapFrom(src => src.Endereco))
                 .ForMember(dest => dest.Complemento, opt => opt.MapFrom(src => src.Complemento));
 
-            CreateMap<Endereco, EnderecoDto>();
+            CreateMap<ClienteDto, Cliente>()
+                .ForMember(dest => dest.EnderecoSede, opt => opt.MapFrom(src => src.EnderecoSedeDto));
+
+
+
+            CreateMap<Cliente, ClienteDto>()
+             .ForMember(dest => dest.EnderecoSedeDto, opt => opt.MapFrom(src => src.EnderecoSede));
 
             CreateMap<EnderecoSede, EnderecoSedeDto>()
                 .ForMember(dest => dest.EnderecoDto, opt => opt.MapFrom(src => src.Endereco));
 
-            CreateMap<EnderecoSedeDto, EnderecoSede>()
-                .ForMember(dest => dest.Endereco, opt => opt.MapFrom(src => src.EnderecoDto));
+            CreateMap<Endereco, EnderecoDto>();
+
         }
     }
 }

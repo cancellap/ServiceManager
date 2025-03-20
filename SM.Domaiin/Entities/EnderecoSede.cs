@@ -13,10 +13,9 @@ namespace SM.Domaiin.Entities
         [ForeignKey("Cliente")]
         public int ClienteId { get; set; }
         public Cliente Cliente { get; set; }
-
         [ForeignKey("Endereco")]
-        public int EnderecoId { get; set; }
-        public Endereco Endereco { get; set; }
+        public int? EnderecoId { get; set; }
+        public Endereco? Endereco { get; set; }
         public String Complemento { get; set; }
     }
 }

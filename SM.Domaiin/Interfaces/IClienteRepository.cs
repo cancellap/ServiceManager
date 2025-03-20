@@ -11,5 +11,7 @@ namespace SM.Domaiin.Interfaces
     public interface IClienteRepository
     {
         Task<Cliente?> GetClienteByCnpjAsync(string cnpj);
+
+        Task<Cliente?> GetByIdClientesAsync(int id);
     }
 }

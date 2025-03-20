@@ -11,5 +11,6 @@ namespace SM.Application.DTOs
     public class EnderecoSedeDto
     {
         public EnderecoDto EnderecoDto { get; set; }
+
     }
 }
