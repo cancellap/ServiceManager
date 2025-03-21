@@ -147,6 +147,149 @@
           }
         }
       }
+    },
+    "/api/Tecnico": {
+      "post": {
+        "tags": [
+          "Tecnico"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/TecnicoCreateDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/TecnicoCreateDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/TecnicoCreateDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/TecnicoDto"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TecnicoDto"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TecnicoDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Tecnico/{id}": {
+      "get": {
+        "tags": [
+          "Tecnico"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Tecnico"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Tecnico/getAll": {
+      "get": {
+        "tags": [
+          "Tecnico"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/TecnicoDto"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TecnicoDto"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TecnicoDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Tecnico/cpf/{cpf}": {
+      "get": {
+        "tags": [
+          "Tecnico"
+        ],
+        "parameters": [
+          {
+            "name": "cpf",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
     }
   },
   "components": {
@@ -155,7 +298,7 @@
         "required": [
           "cnpj",
           "email",
-          "enderecoSedeCreateDto",
+          "enderecoComplementoCreateDto",
           "nomeFantasia",
           "razaoSocial"
         ],
@@ -180,8 +323,8 @@
             "pattern": "^\\d{14}$",
             "type": "string"
           },
-          "enderecoSedeCreateDto": {
-            "$ref": "#/components/schemas/EnderecoSedeCreateDto"
+          "enderecoComplementoCreateDto": {
+            "$ref": "#/components/schemas/EnderecoComplementoCreateDto"
           }
         },
         "additionalProperties": false
@@ -227,8 +370,8 @@
             "type": "string",
             "nullable": true
           },
-          "enderecoSedeDto": {
-            "$ref": "#/components/schemas/EnderecoSedeDto"
+          "enderecoComplementoDto": {
+            "$ref": "#/components/schemas/EnderecoComplementoDto"
           }
         },
         "additionalProperties": false
@@ -289,6 +432,36 @@
         },
         "additionalProperties": false
       },
+      "EnderecoComplementoCreateDto": {
+        "required": [
+          "complemento",
+          "endereco"
+        ],
+        "type": "object",
+        "properties": {
+          "endereco": {
+            "$ref": "#/components/schemas/Endereco"
+          },
+          "complemento": {
+            "minLength": 1,
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "EnderecoComplementoDto": {
+        "type": "object",
+        "properties": {
+          "complemento": {
+            "type": "string",
+            "nullable": true
+          },
+          "enderecoDto": {
+            "$ref": "#/components/schemas/EnderecoDto"
+          }
+        },
+        "additionalProperties": false
+      },
       "EnderecoDto": {
         "type": "object",
         "properties": {
@@ -323,32 +496,55 @@
         },
         "additionalProperties": false
       },
-      "EnderecoSedeCreateDto": {
+      "TecnicoCreateDto": {
         "required": [
-          "complemento",
-          "endereco"
+          "cpf",
+          "email",
+          "enderecoComplementoCreateDto",
+          "nome"
         ],
         "type": "object",
         "properties": {
-          "endereco": {
-            "$ref": "#/components/schemas/Endereco"
-          },
-          "complemento": {
+          "email": {
             "minLength": 1,
             "type": "string"
+          },
+          "nome": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "cpf": {
+            "minLength": 1,
+            "pattern": "^\\d{11}$",
+            "type": "string"
+          },
+          "enderecoComplementoCreateDto": {
+            "$ref": "#/components/schemas/EnderecoComplementoCreateDto"
           }
         },
         "additionalProperties": false
       },
-      "EnderecoSedeDto": {
+      "TecnicoDto": {
         "type": "object",
         "properties": {
-          "complemento": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "email": {
             "type": "string",
             "nullable": true
           },
-          "enderecoDto": {
-            "$ref": "#/components/schemas/EnderecoDto"
+          "nome": {
+            "type": "string",
+            "nullable": true
+          },
+          "cpf": {
+            "type": "string",
+            "nullable": true
+          },
+          "enderecoComplementoDto": {
+            "$ref": "#/components/schemas/EnderecoComplementoDto"
           }
         },
         "additionalProperties": false

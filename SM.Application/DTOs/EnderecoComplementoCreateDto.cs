@@ -8,9 +8,9 @@ using System.Threading.Tasks;
 
 namespace SM.Application.DTOs
 {
-    public class EnderecoSedeCreateDto
+    public class EnderecoComplementoCreateDto
     {
-        [Required(ErrorMessage = "O Endereço é obrigatório")]
+        [Required(ErrorMessage = "O Endereço é obrigatórioa")]
         public Endereco Endereco { get; set; }
 
         [Required(ErrorMessage = "O complemento é obrigatório")]

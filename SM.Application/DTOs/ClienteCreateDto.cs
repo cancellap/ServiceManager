@@ -26,7 +26,7 @@ namespace SM.Application.DTOs
         public string Cnpj { get; set; }
 
         [Required(ErrorMessage = "O Endereço é obrigatório 2")]
-        public EnderecoSedeCreateDto EnderecoSedeCreateDto { get; set; }
+        public EnderecoComplementoCreateDto EnderecoComplementoCreateDto { get; set; }
 
     }
 }

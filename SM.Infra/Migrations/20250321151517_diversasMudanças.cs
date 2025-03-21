@@ -7,7 +7,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace SM.Infra.Migrations
 {
     /// <inheritdoc />
-    public partial class NovaMigracao : Migration
+    public partial class diversasMudanças : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -33,7 +33,7 @@ namespace SM.Infra.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Endereco",
+                name: "Enderecos",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "integer", nullable: false)
@@ -52,17 +52,37 @@ namespace SM.Infra.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Endereco", x => x.Id);
+                    table.PrimaryKey("PK_Enderecos", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
-                name: "EnderecoSede",
+                name: "Tecnicos",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "integer", nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
-                    ClienteId = table.Column<int>(type: "integer", nullable: false),
-                    EnderecoId = table.Column<int>(type: "integer", nullable: false),
+                    Email = table.Column<string>(type: "text", nullable: false),
+                    Nome = table.Column<string>(type: "text", nullable: false),
+                    Cpf = table.Column<string>(type: "text", nullable: false),
+                    CreatedAt = table.Column<DateTime>(type: "timestamp with time zone", nullable: true),
+                    UpdatedAt = table.Column<DateTime>(type: "timestamp with time zone", nullable: true),
+                    DeletedAt = table.Column<DateTime>(type: "timestamp with time zone", nullable: true),
+                    IsDeleted = table.Column<bool>(type: "boolean", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Tecnicos", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "EnderecoComplementos",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "integer", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    ClienteId = table.Column<int>(type: "integer", nullable: true),
+                    TecnicoId = table.Column<int>(type: "integer", nullable: true),
+                    EnderecoId = table.Column<int>(type: "integer", nullable: true),
                     Complemento = table.Column<string>(type: "text", nullable: false),
                     CreatedAt = table.Column<DateTime>(type: "timestamp with time zone", nullable: true),
                     UpdatedAt = table.Column<DateTime>(type: "timestamp with time zone", nullable: true),
@@ -71,44 +91,59 @@ namespace SM.Infra.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_EnderecoSede", x => x.Id);
+                    table.PrimaryKey("PK_EnderecoComplementos", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_EnderecoSede_Clientes_ClienteId",
+                        name: "FK_EnderecoComplementos_Clientes_ClienteId",
                         column: x => x.ClienteId,
                         principalTable: "Clientes",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_EnderecoSede_Endereco_EnderecoId",
+                        name: "FK_EnderecoComplementos_Enderecos_EnderecoId",
                         column: x => x.EnderecoId,
-                        principalTable: "Endereco",
+                        principalTable: "Enderecos",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_EnderecoComplementos_Tecnicos_TecnicoId",
+                        column: x => x.TecnicoId,
+                        principalTable: "Tecnicos",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_EnderecoSede_ClienteId",
-                table: "EnderecoSede",
+                name: "IX_EnderecoComplementos_ClienteId",
+                table: "EnderecoComplementos",
                 column: "ClienteId",
                 unique: true);
 
             migrationBuilder.CreateIndex(
-                name: "IX_EnderecoSede_EnderecoId",
-                table: "EnderecoSede",
+                name: "IX_EnderecoComplementos_EnderecoId",
+                table: "EnderecoComplementos",
                 column: "EnderecoId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_EnderecoComplementos_TecnicoId",
+                table: "EnderecoComplementos",
+                column: "TecnicoId",
+                unique: true);
         }
 
         /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "EnderecoSede");
+                name: "EnderecoComplementos");
 
             migrationBuilder.DropTable(
                 name: "Clientes");
 
             migrationBuilder.DropTable(
-                name: "Endereco");
+                name: "Enderecos");
+
+            migrationBuilder.DropTable(
+                name: "Tecnicos");
         }
     }
 }

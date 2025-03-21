@@ -19,6 +19,6 @@ namespace SM.Application.DTOs
         public string NomeFantasia { get; set; }
         public string Email { get; set; }
         public string Cnpj { get; set; }  
-        public EnderecoSedeDto EnderecoSedeDto { get; set; }
+        public EnderecoComplementoDto EnderecoComplementoDto { get; set; }
     }
 }

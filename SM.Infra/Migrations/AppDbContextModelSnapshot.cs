@@ -113,10 +113,10 @@ namespace SM.Infra.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Endereco");
+                    b.ToTable("Enderecos");
                 });
 
-            modelBuilder.Entity("SM.Domaiin.Entities.EnderecoSede", b =>
+            modelBuilder.Entity("SM.Domaiin.Entities.EnderecoComplemento", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -124,7 +124,7 @@ namespace SM.Infra.Migrations
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
-                    b.Property<int>("ClienteId")
+                    b.Property<int?>("ClienteId")
                         .HasColumnType("integer");
 
                     b.Property<string>("Complemento")
@@ -137,11 +137,14 @@ namespace SM.Infra.Migrations
                     b.Property<DateTime?>("DeletedAt")
                         .HasColumnType("timestamp with time zone");
 
-                    b.Property<int>("EnderecoId")
+                    b.Property<int?>("EnderecoId")
                         .HasColumnType("integer");
 
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("boolean");
+
+                    b.Property<int?>("TecnicoId")
+                        .HasColumnType("integer");
 
                     b.Property<DateTime?>("UpdatedAt")
                         .HasColumnType("timestamp with time zone");
@@ -153,32 +156,81 @@ namespace SM.Infra.Migrations
 
                     b.HasIndex("EnderecoId");
 
-                    b.ToTable("EnderecoSedes");
+                    b.HasIndex("TecnicoId")
+                        .IsUnique();
+
+                    b.ToTable("EnderecoComplementos");
                 });
 
-            modelBuilder.Entity("SM.Domaiin.Entities.EnderecoSede", b =>
+            modelBuilder.Entity("SM.Domaiin.Entities.Tecnico", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Cpf")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<DateTime?>("CreatedAt")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<DateTime?>("DeletedAt")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("boolean");
+
+                    b.Property<string>("Nome")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<DateTime?>("UpdatedAt")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Tecnicos");
+                });
+
+            modelBuilder.Entity("SM.Domaiin.Entities.EnderecoComplemento", b =>
                 {
                     b.HasOne("SM.Domaiin.Entities.Cliente", "Cliente")
-                        .WithOne("EnderecoSede")
-                        .HasForeignKey("SM.Domaiin.Entities.EnderecoSede", "ClienteId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .WithOne("EnderecoComplemento")
+                        .HasForeignKey("SM.Domaiin.Entities.EnderecoComplemento", "ClienteId")
+                        .OnDelete(DeleteBehavior.Cascade);
 
                     b.HasOne("SM.Domaiin.Entities.Endereco", "Endereco")
                         .WithMany()
                         .HasForeignKey("EnderecoId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("SM.Domaiin.Entities.Tecnico", "Tecnico")
+                        .WithOne("EnderecoComplemento")
+                        .HasForeignKey("SM.Domaiin.Entities.EnderecoComplemento", "TecnicoId")
+                        .OnDelete(DeleteBehavior.Cascade);
 
                     b.Navigation("Cliente");
 
                     b.Navigation("Endereco");
+
+                    b.Navigation("Tecnico");
                 });
 
             modelBuilder.Entity("SM.Domaiin.Entities.Cliente", b =>
                 {
-                    b.Navigation("EnderecoSede")
-                        .IsRequired();
+                    b.Navigation("EnderecoComplemento");
+                });
+
+            modelBuilder.Entity("SM.Domaiin.Entities.Tecnico", b =>
+                {
+                    b.Navigation("EnderecoComplemento");
                 });
 #pragma warning restore 612, 618
         }

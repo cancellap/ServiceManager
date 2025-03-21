@@ -16,7 +16,7 @@ namespace SM.Domaiin.Entities
         public string Email { get; set; }
         public string Cnpj { get; set; }
         [InverseProperty("Cliente")]
-        public EnderecoSede? EnderecoSede { get; set; }
+        public EnderecoComplemento? EnderecoComplemento { get; set; }
 
         public Cliente() { }
 
@@ -27,7 +27,7 @@ namespace SM.Domaiin.Entities
             RazaoSocial = c.RazaoSocial;
             Email = c.Email;
             Cnpj = c.Cnpj;
-            EnderecoSede = c.EnderecoSede;
+            EnderecoComplemento = c.EnderecoComplemento;
 
         }
         private static void ValidateDomain(Cliente c)
@@ -36,7 +36,7 @@ namespace SM.Domaiin.Entities
             DomainExceptionValidation.When(string.IsNullOrEmpty(c.Email), "Email é obrigatório");
             DomainExceptionValidation.When(string.IsNullOrEmpty(c.Cnpj), "Cnpj é obrigatório");
             DomainExceptionValidation.When(!ValidaCnpj.IsCnpj(c.Cnpj), "Cnpj inválido");
-            DomainExceptionValidation.When(c.EnderecoSede == null, "Endereço é obrigatório");
+            DomainExceptionValidation.When(c.EnderecoComplemento == null, "Endereço é obrigatório");
         }
     }
 }

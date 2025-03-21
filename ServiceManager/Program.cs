@@ -12,13 +12,19 @@ builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection"),
          b => b.MigrationsAssembly("SM.Infra")));
 
-builder.Services.AddScoped<ClienteRespository>();
+builder.Services.AddScoped<ClienteRepository>();
 builder.Services.AddScoped<EnderecoRepository>();
-builder.Services.AddScoped<EnderecoSedeRepository>();
-builder.Services.AddScoped<IEnderecoSedeRepository, EnderecoSedeRepository>();
-builder.Services.AddScoped<IClienteRepository, ClienteRespository>();
+builder.Services.AddScoped<IEnderecoService, EnderecoService>();
+builder.Services.AddScoped<TecnicoRepository>();
+builder.Services.AddScoped<EnderecoComplementoRepository>();
+builder.Services.AddScoped<IEnderecoComplementoRepository, EnderecoComplementoRepository>();
+builder.Services.AddScoped<ITecnicoRepository, TecnicoRepository>();
+builder.Services.AddScoped<IClienteRepository, ClienteRepository>();
 builder.Services.AddScoped<IEnderecoRepository, EnderecoRepository>();
 builder.Services.AddScoped<ClienteService>();
+builder.Services.AddScoped<EnderecoService>();
+builder.Services.AddScoped<TecnicoService>();
+builder.Services.AddScoped<ITecnicoService, TecnicoService>();
 builder.Services.AddAutoMapper(typeof(SM.Application.Mapping.Mapper));
 
 

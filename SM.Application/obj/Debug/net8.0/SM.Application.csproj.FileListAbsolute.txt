@@ -67,12 +67,6 @@ C:\Users\PedroCancellaOliveir\Repositorios\ServiceManager\SM.Application\obj\Deb
 C:\Users\PedroCancellaOliveir\Repositorios\ServiceManager\SM.Application\obj\Debug\net8.0\SM.Application.pdb
 C:\Users\PedroCancellaOliveir\Repositorios\ServiceManager\SM.Application\obj\Debug\net8.0\SM.Application.genruntimeconfig.cache
 C:\Users\PedroCancellaOliveir\Repositorios\ServiceManager\SM.Application\obj\Debug\net8.0\ref\SM.Application.dll
-C:\Users\PedroCancellaOliveir\Desktop\ServiceManager\SM.Application\obj\Debug\net8.0\SM.Application.csproj.AssemblyReference.cache
-C:\Users\PedroCancellaOliveir\Desktop\ServiceManager\SM.Application\obj\Debug\net8.0\SM.Application.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\PedroCancellaOliveir\Desktop\ServiceManager\SM.Application\obj\Debug\net8.0\SM.Application.AssemblyInfoInputs.cache
-C:\Users\PedroCancellaOliveir\Desktop\ServiceManager\SM.Application\obj\Debug\net8.0\SM.Application.AssemblyInfo.cs
-C:\Users\PedroCancellaOliveir\Desktop\ServiceManager\SM.Application\obj\Debug\net8.0\SM.Application.csproj.CoreCompileInputs.cache
-C:\Users\PedroCancellaOliveir\Desktop\ServiceManager\SM.Application\obj\Debug\net8.0\SM.Application.sourcelink.json
 C:\Users\PedroCancellaOliveir\Desktop\ServiceManager\SM.Application\bin\Debug\net8.0\SM.Domaiin.deps.json
 C:\Users\PedroCancellaOliveir\Desktop\ServiceManager\SM.Application\bin\Debug\net8.0\SM.Domaiin.runtimeconfig.json
 C:\Users\PedroCancellaOliveir\Desktop\ServiceManager\SM.Application\bin\Debug\net8.0\SM.Domaiin.exe
@@ -84,6 +78,12 @@ C:\Users\PedroCancellaOliveir\Desktop\ServiceManager\SM.Application\bin\Debug\ne
 C:\Users\PedroCancellaOliveir\Desktop\ServiceManager\SM.Application\bin\Debug\net8.0\SM.Infra.dll
 C:\Users\PedroCancellaOliveir\Desktop\ServiceManager\SM.Application\bin\Debug\net8.0\SM.Domaiin.pdb
 C:\Users\PedroCancellaOliveir\Desktop\ServiceManager\SM.Application\bin\Debug\net8.0\SM.Infra.pdb
+C:\Users\PedroCancellaOliveir\Desktop\ServiceManager\SM.Application\obj\Debug\net8.0\SM.Application.csproj.AssemblyReference.cache
+C:\Users\PedroCancellaOliveir\Desktop\ServiceManager\SM.Application\obj\Debug\net8.0\SM.Application.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\PedroCancellaOliveir\Desktop\ServiceManager\SM.Application\obj\Debug\net8.0\SM.Application.AssemblyInfoInputs.cache
+C:\Users\PedroCancellaOliveir\Desktop\ServiceManager\SM.Application\obj\Debug\net8.0\SM.Application.AssemblyInfo.cs
+C:\Users\PedroCancellaOliveir\Desktop\ServiceManager\SM.Application\obj\Debug\net8.0\SM.Application.csproj.CoreCompileInputs.cache
+C:\Users\PedroCancellaOliveir\Desktop\ServiceManager\SM.Application\obj\Debug\net8.0\SM.Application.sourcelink.json
 C:\Users\PedroCancellaOliveir\Desktop\ServiceManager\SM.Application\obj\Debug\net8.0\SM.Appli.BB79B190.Up2Date
 C:\Users\PedroCancellaOliveir\Desktop\ServiceManager\SM.Application\obj\Debug\net8.0\SM.Application.dll
 C:\Users\PedroCancellaOliveir\Desktop\ServiceManager\SM.Application\obj\Debug\net8.0\refint\SM.Application.dll

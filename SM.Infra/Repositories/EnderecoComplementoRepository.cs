@@ -10,9 +10,9 @@ using System.Threading.Tasks;
 
 namespace SM.Infra.Repositories
 {
-    public class EnderecoSedeRepository : BaseRepository<EnderecoSede>, IEnderecoSedeRepository
+    public class EnderecoComplementoRepository : BaseRepository<EnderecoComplemento>, IEnderecoComplementoRepository
     {
-        public EnderecoSedeRepository(AppDbContext dbContext) : base(dbContext)
+        public EnderecoComplementoRepository(AppDbContext dbContext) : base(dbContext)
         {
         }
     }

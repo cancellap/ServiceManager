@@ -8,14 +8,20 @@ using System.Threading.Tasks;
 
 namespace SM.Domaiin.Entities
 {
-    public class EnderecoSede : BaseEntity
+    public class EnderecoComplemento : BaseEntity
     {
         [ForeignKey("Cliente")]
-        public int ClienteId { get; set; }
-        public Cliente Cliente { get; set; }
+        public int? ClienteId { get; set; }
+        public Cliente? Cliente { get; set; }
+
+        [ForeignKey("Tecnico")]
+        public int? TecnicoId { get; set; }
+        public Tecnico? Tecnico { get; set; }
+
         [ForeignKey("Endereco")]
         public int? EnderecoId { get; set; }
+
         public Endereco? Endereco { get; set; }
-        public String Complemento { get; set; }
+        public string Complemento { get; set; }
     }
 }

@@ -13,7 +13,7 @@ namespace SM.Infra.Repositories
         }
         public async Task<Endereco> GetEnderecoByDetailsAsync(string rua, string cidade, string estado, string cep)
         {
-            var endereco = await _dBContext.Endereco
+            var endereco = await _dBContext.Enderecos
                                            .FirstOrDefaultAsync(e => e.Rua.Equals(rua) &&
                                                                      e.Cidade.Equals(cidade) &&
                                                                      e.Estado.Equals(estado) &&

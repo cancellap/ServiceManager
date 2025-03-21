@@ -24,7 +24,7 @@ namespace SM.Infra.Repositories.Base
 
         public async Task<TEntity> AddAsync(TEntity entity)
         {
-            entity.CreatedAt = DateTime.Now;
+            entity.CreatedAt = DateTime.UtcNow;
             await _dBContext.Set<TEntity>().AddAsync(entity);
             await _dBContext.SaveChangesAsync();
             return entity;
