@@ -17,6 +17,7 @@ namespace SM.Domaiin.Entities
         public string Cnpj { get; set; }
         [InverseProperty("Cliente")]
         public EnderecoComplemento? EnderecoComplemento { get; set; }
+        public ICollection<Servicos> Servicos { get; set; }
 
         public Cliente() { }
 

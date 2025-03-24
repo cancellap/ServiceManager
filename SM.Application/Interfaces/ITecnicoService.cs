@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using SM.Application.DTOs;
 using SM.Domaiin.Entities;
 
-namespace SM.Domaiin.Interfaces
+namespace SM.Application.Interfaces
 {
     public interface ITecnicoService
     {

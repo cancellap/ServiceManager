@@ -17,5 +17,7 @@ namespace SM.Domaiin.Entities
         public string Cpf { get; set; }
         [InverseProperty("Tecnico")]
         public EnderecoComplemento? EnderecoComplemento { get; set; }
+        public List<ServicoTecnico> servicoTecnicos { get; set; }
+        public int ServicosId { get; set; }
     }
 }

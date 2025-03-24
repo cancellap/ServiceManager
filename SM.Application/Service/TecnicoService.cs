@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
 using SM.Application.DTOs;
+using SM.Application.Interfaces;
 using SM.Domaiin.Entities;
-using SM.Domaiin.Interfaces;
 using SM.Infra.Repositories;
 
 namespace SM.Application.Service

@@ -1,5 +1,5 @@
-﻿using SM.Domaiin.Entities;
-using SM.Domaiin.Interfaces;
+﻿using SM.Application.Interfaces;
+using SM.Domaiin.Entities;
 using SM.Infra.Repositories;
 using System;
 using System.Collections.Generic;
@@ -18,25 +18,9 @@ namespace SM.Application.Service
             _enderecoRepository = enderecoRepository;
         }
 
-        public async Task<int> ObterOuCriarEnderecoAsync(Endereco endereco)
+        public Task<int> ObterOuCriarEnderecoAsync(Endereco endereco)
         {
-            if (endereco == null)
-                throw new ArgumentNullException(nameof(endereco));
-
-            var enderecoExistente = await _enderecoRepository.
-                GetEnderecoByDetailsAsync(endereco.Rua, endereco.Cidade, endereco.Estado, endereco.Cep);
-
-            if (enderecoExistente != null)
-            {
-                Console.WriteLine("Endereco já existe: " + enderecoExistente.Id);
-                return enderecoExistente.Id;
-            }
-
-            await _enderecoRepository.AddAsync(endereco);
-
-            Console.WriteLine("Endereco criado: " + endereco.Id);
-            return endereco.Id;
+            throw new NotImplementedException();
         }
-
     }
 }

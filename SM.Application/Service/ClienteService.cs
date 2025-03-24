@@ -14,36 +14,27 @@ using System.Threading.Tasks;
 
 namespace SM.Application.Service
 {
-    public class ClienteService(
-        ClienteRepository clienteRepository,
-        EnderecoRepository enderecoRepository,
-        EnderecoComplementoRepository enderecoSedeRepository,
-        EnderecoService enderecoService,
-        IMapper mapper) : IClienteService
+    public class ClienteService : IClienteService
     {
-        private readonly ClienteRepository _clienteRepository = clienteRepository ?? throw new ArgumentNullException(nameof(clienteRepository));
-        private readonly EnderecoRepository _enderecoRepository = enderecoRepository ?? throw new ArgumentNullException(nameof(enderecoRepository));
-        private readonly EnderecoComplementoRepository _enderecoComplementoRepository = enderecoSedeRepository ?? throw new ArgumentNullException(nameof(enderecoSedeRepository));
-        private readonly EnderecoService _enderecoService = enderecoService ?? throw new ArgumentNullException(nameof(enderecoService));
-        private readonly IMapper _mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
+        private readonly ClienteRepository _clienteRepository;
+        private readonly EnderecoRepository _enderecoRepository;
+        private readonly EnderecoComplementoRepository _enderecoComplementoRepository;
+        private readonly EnderecoService _enderecoService;
+        private readonly IMapper _mapper;
 
-        //colocar esse metodo dentro do EnderecoService, para que nao se repita aqui e no tecnicoService
-        //public async Task<int> ObterOuCriarEnderecoAsync(Endereco endereco)
-        //{
-        //    var enderecoExistente = await _enderecoRepository.
-        //        GetEnderecoByDetailsAsync(endereco.Rua, endereco.Cidade, endereco.Estado, endereco.Cep);
-
-        //    if (enderecoExistente != null)
-        //    {
-        //        Console.WriteLine("Endereco já existe" + enderecoExistente.Id);
-        //        return enderecoExistente.Id;
-        //    }
-
-        //    await _enderecoRepository.AddAsync(endereco);
-
-        //    Console.WriteLine("Endereco criado" + endereco.Id);
-        //    return endereco.Id;
-        //}
+        public ClienteService(
+            ClienteRepository clienteRepository,
+            EnderecoRepository enderecoRepository,
+            EnderecoComplementoRepository enderecoComplementoRepository,
+            EnderecoService enderecoService,
+            IMapper mapper)
+        {
+            _clienteRepository = clienteRepository ?? throw new ArgumentNullException(nameof(clienteRepository));
+            _enderecoRepository = enderecoRepository ?? throw new ArgumentNullException(nameof(enderecoRepository));
+            _enderecoComplementoRepository = enderecoComplementoRepository ?? throw new ArgumentNullException(nameof(enderecoComplementoRepository));
+            _enderecoService = enderecoService ?? throw new ArgumentNullException(nameof(enderecoService));
+            _mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
+        }
 
 
         public async Task<ClienteDto> CreateClienteAsync(ClienteCreateDto clienteCreateDto)
@@ -74,7 +65,7 @@ namespace SM.Application.Service
             await _enderecoComplementoRepository.AddAsync(enderecoComplemento);
 
             clienteCriado.EnderecoComplemento = enderecoComplemento;
-            await _clienteRepository.updateClienteAsync(clienteCriado); 
+            await _clienteRepository.updateClienteAsync(clienteCriado);
 
             return _mapper.Map<ClienteDto>(clienteCriado);
         }

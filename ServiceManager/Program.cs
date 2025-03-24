@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Internal;
+using SM.Application.Interfaces;
 using SM.Application.Service;
 using SM.Domaiin.Interfaces;
 using SM.Infra.Data;
